@@ -1,0 +1,111 @@
+
+/*Reset de atributos gerais*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*atributos tela*/
+.game-board {
+    width: 100%;
+    height: 500px;
+    border-bottom: 15px solid rgb(79, 126, 8);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87ceeb, #E0F6ff);
+}
+
+/*atributos cloud*/
+.cloud {
+    position: absolute;
+    width: 500px;
+    padding-top: 50px;
+    animation: cloud-animation-1 50s infinite linear;
+}
+
+/*atributos grama*/
+.grama {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 100;
+}
+
+/* atributos cano*/
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    right: -80px;
+}
+
+.pipe-animation{
+    animation: pipe-animation 2s infinite linear;
+}
+
+/* atributos do Mario*/
+.mario {
+    width: 120px;
+    position: absolute;
+    bottom: 0;
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+
+/* animação do cano*/
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+/* animação do Jump*/
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+
+}
+
+@keyframes cloud-animation-1 {
+    from {
+        right: -500px;
+    }
+
+    to {
+        right: 100%;
+    }
+} 
+
+
+p {
+    font-family:'Roboto Mono', monospace;
+    padding: 50px;
+    text-align: center;
+    color: black;
+}
