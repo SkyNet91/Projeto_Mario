@@ -21,8 +21,12 @@
 .cloud {
     position: absolute;
     width: 500px;
-    padding-top: 50px;
-    animation: cloud-animation-1 50s infinite linear;
+    padding-top: 10px;
+    right: -500px;
+}
+
+.cloud-animation{
+    animation: cloud-animation-1 30s infinite linear;
 }
 
 /*atributos grama*/
@@ -102,10 +106,16 @@
     }
 } 
 
-
 p {
     font-family:'Roboto Mono', monospace;
     padding: 50px;
+    text-align: center;
+    color: black;
+}
+
+h3 {
+    font-family:'Roboto Mono', monospace;
+    right: 250;
     text-align: center;
     color: black;
 }

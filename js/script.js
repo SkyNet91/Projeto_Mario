@@ -1,27 +1,28 @@
-
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
 const cloud = document.querySelector('.cloud');
-textStart = document.querySelector('text-start');
-audioStart = new Audio('./audio/theme.mp3');
-audioGameOver = new Audio('./audio/gameover.mp3');
+const textStart = document.querySelector('#text-start');
+const audioStart = new Audio('./audio/theme.mp3');
+const audioGameOver = new Audio('./audio/gameover.mp3');
+const scoreElement = document.querySelector('#score');
 
+let score = 0;
+
+//Start do jogo//
 const start = () => {
-
-    document.getElementById("text-start").style.color = "rgb(236, 236, 236)";
-
+    textStart.style.color = "rgb(236, 236, 236)";
     pipe.classList.add('pipe-animation');
-
-    mario.src = './imagens/mario.gif';
-    mario.style.width = '120px';
+    cloud.classList.add('cloud-animation');
 
     audioStart.play();
 }
+document.addEventListener('keydown', (event) => {
+    if (event.code === "Space") {
+        start();
+    }
+});
 
-document.addEventListener('keydown', start);
-
-
-
+//evento de pulo//
 const jump = () => {
     mario.classList.add('jump');
     setTimeout(() => {
@@ -30,25 +31,17 @@ const jump = () => {
 }
 document.addEventListener('keydown', jump);
 
-
+//evento de fim de jogo//
 const loop = setInterval(() => {
-
-
     const pipePosition = pipe.offsetLeft;
     const cloudPosition = cloud.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
 
-
     if (pipePosition <= 100 && pipePosition > 0 && marioPosition < 80) {
-
-
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`;
-
-
         cloud.style.animation = 'none';
         cloud.style.left = `${cloudPosition}px`;
-
         mario.style.animation = 'none';
         mario.style.bottom = `${marioPosition}px`;
 
@@ -56,9 +49,8 @@ const loop = setInterval(() => {
         mario.style.width = '70px'
         mario.style.marginLeft = '20px'
 
-        document.getElementById("text-start").style.color = "black";
-        document.getElementById("text-start").innerHTML = "<strong>GAME OVER</strong>";
-
+        textStart.style.color = "black";
+        textStart.innerHTML = "<strong>GAME OVER</strong>";
 
         function stopAudioStart() {
             audioStart.pause();
@@ -69,15 +61,17 @@ const loop = setInterval(() => {
         function stopAudio() {
             audioGameOver.pause();
         } setTimeout(stopAudio, 8000);
-        //Limpa o Loop//
+
         clearInterval(loop);
 
-
+        //Recarrega a tela//
         setTimeout(function () {
             location.reload();
-        }, 10000);
+        }, 9000);
+    } 
+    else if (pipePosition <= -50) {
+        // O jogador passou pelo obstáculo com sucesso
+        score++;
+        scoreElement.textContent = score;
     }
-
 }, 10);
-
-
