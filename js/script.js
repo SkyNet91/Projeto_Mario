@@ -34,6 +34,8 @@ function start (){
     isStart=true;
 
     playAudioStart();
+    textStart.style.color = "#ececec";
+        textStart.innerHTML = "<strong>Para Pular, Precione Espaço</strong>";
 
     scoreInterval = setInterval(() => {
         score++;
