@@ -27,16 +27,14 @@ document.addEventListener('keydown', (event) => {
 
 //Start do jogo//
 function start (){
-    textStart.style.color = "#ececec";
     pipe.classList.add('pipe-animation');
     cloud.classList.add('cloud-animation');
+    textStart.innerHTML = "<strong>Para Pular, Precione Espaço</strong>";
     
     isStart=true;
 
     playAudioStart();
-    textStart.style.color = "#ececec";
-        textStart.innerHTML = "<strong>Para Pular, Precione Espaço</strong>";
-
+        
     scoreInterval = setInterval(() => {
         score++;
         scoreElement.textContent = score;
@@ -97,6 +95,7 @@ const loop = setInterval(() => {
         setTimeout(stopAudio, 8000);
 
         clearInterval(loop);
+        
         clearInterval(scoreInterval);
 
         //Recarrega a tela//
