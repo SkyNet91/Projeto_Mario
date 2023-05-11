@@ -1,2 +1,2 @@
 # Projeto desenvolvido em HTML, CSS e JS.
-## Jogo Infinity Run, estilo do Dinossauro do Google
+## Jogo Infinity Run, inspirado no jogo do Google
