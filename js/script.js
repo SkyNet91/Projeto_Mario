@@ -12,7 +12,8 @@ const scoreElement = document.querySelector('#score');
 
 let score = 0;
 
-//Evento de teclado//
+let scoreInterval;
+
 document.addEventListener('keydown', (event) => {
     
     if(event.code === "Space" && isStart == true){
@@ -33,6 +34,11 @@ function start (){
     isStart=true;
 
     playAudioStart();
+
+    scoreInterval = setInterval(() => {
+        score++;
+        scoreElement.textContent = score;
+    }, 1000);// adiciona 1 ponto a cada segundo
 }
 
 function jump(){
@@ -89,15 +95,12 @@ const loop = setInterval(() => {
         setTimeout(stopAudio, 8000);
 
         clearInterval(loop);
+        clearInterval(scoreInterval);
 
         //Recarrega a tela//
         setTimeout(function () {
             location.reload();
         }, 9000);
         
-    }else if (pipePosition <= -50) {
-        // O jogador passou pelo obstáculo com sucesso
-        score++;
-        scoreElement.textContent = score;
     }
 }, 10);
