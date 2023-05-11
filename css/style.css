@@ -21,7 +21,7 @@
 .cloud {
     position: absolute;
     width: 500px;
-    padding-top: 10px;
+    padding-top: 17px;
     right: -500px;
 }
 
@@ -29,13 +29,6 @@
     animation: cloud-animation-1 30s infinite linear;
 }
 
-/*atributos grama*/
-.grama {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    height: 100;
-}
 
 /* atributos cano*/
 .pipe {
